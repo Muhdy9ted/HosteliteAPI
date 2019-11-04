@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HosteliteAPI</name>
+    </assembly>
+    <members>
+        <member name="T:HosteliteAPI.Controllers.HostelsController">
+            <summary>
+            The hostel API for CRUD communication with our database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HosteliteAPI.Controllers.HostelsController.#ctor(HosteliteAPI.Models.ApplicationDbContext)">
+            <summary>
+            This API DbContext communication
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HosteliteAPI.Controllers.HostelsController.GetHostels">
+            <summary>
+            This API lists all the hostels we have at the moment
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HosteliteAPI.Controllers.HostelsController.GetHostel(System.Int32)">
+            <summary>
+            This API gets a particular hostel from the database
+            </summary>
+            <param name="id"> Mandatory </param>
+            <returns></returns>
+        </member>
+        <member name="M:HosteliteAPI.Controllers.HostelsController.PutHostel(System.Int32,HosteliteAPI.Models.Hostel)">
+            <summary>
+            This API lets you edit the details of the specified hostel in the database
+            </summary>
+            <param name="id"> Mandatory </param>
+            <param name="hostel"> The hostel object </param>
+            <returns></returns>
+        </member>
+        <member name="M:HosteliteAPI.Controllers.HostelsController.PostHostel(HosteliteAPI.Models.Hostel)">
+            <summary>
+            This API saves a new hostel to the database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HosteliteAPI.Controllers.HostelsController.DeleteHostel(System.Int32)">
+            <summary>
+            This API deletes the specified hostel from the database
+            </summary>
+            <param name="id"> Mandatory </param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
