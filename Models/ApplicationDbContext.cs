@@ -6,22 +6,35 @@ using System.Threading.Tasks;
 
 namespace HosteliteAPI.Models
 {
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+    /// <summary>
+    /// The entity framework database context class
+    /// </summary>
+    /// <returns></returns>
     public class ApplicationDbContext : DbContext
-#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
-    {
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
-        {
-                
-        }
 
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+    {
+        /// <summary>
+        /// The entity framework database context class constructor
+        /// </summary>
+        /// <returns></returns>
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options){ }
+
+        /// <summary>
+        /// registring our hostel model to the entity framework database context
+        /// </summary>
+        /// <returns></returns>
         public DbSet<Hostel> Hostels { get; set; }
-#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
-#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+
+        /// <summary>
+        /// registring our user model to the entity framework database context
+        /// </summary>
+        /// <returns></returns>
         public DbSet<User> Users { get; set; }
-#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
+
+        /// <summary>
+        /// registring our user model to the entity framework database context
+        /// </summary>
+        /// <returns></returns>
+        public DbSet<Photo> Photos { get; set; }
     }
 }

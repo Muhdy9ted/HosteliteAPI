@@ -9,13 +9,20 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HosteliteAPI.Migrations
 {
+    /// <summary>
+    /// database migration
+    /// </summary>
+    /// <returns></returns>
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191028122347_UserModel-Added")]
-    partial class UserModelAdded
+    [Migration("20191126140343_Initial")]
+    partial class Initial
     {
+        /// <summary>
+        /// database migration
+        /// </summary>
+        /// <returns></returns>
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
-#pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
@@ -29,30 +36,19 @@ namespace HosteliteAPI.Migrations
 
                     b.Property<DateTime>("CreatedHostel");
 
-                    b.Property<string>("HostelAddress")
-                        .IsRequired()
-                        .HasMaxLength(100);
+                    b.Property<string>("HostelAddress");
 
-                    b.Property<string>("HostelDescription")
-                        .IsRequired()
-                        .HasMaxLength(500);
+                    b.Property<string>("HostelDescription");
 
-                    b.Property<string>("HostelLocation")
-                        .IsRequired()
-                        .HasMaxLength(50);
+                    b.Property<string>("HostelLocation");
 
-                    b.Property<string>("HostelName")
-                        .IsRequired()
-                        .HasMaxLength(50);
+                    b.Property<string>("HostelName");
 
                     b.Property<int>("HostelNumberOfRooms");
 
-                    b.Property<string>("HostelSlug")
-                        .HasMaxLength(200);
+                    b.Property<string>("HostelSlug");
 
-                    b.Property<string>("HostelType")
-                        .IsRequired()
-                        .HasMaxLength(50);
+                    b.Property<string>("HostelType");
 
                     b.Property<double>("RentPerRoom");
 
@@ -69,11 +65,11 @@ namespace HosteliteAPI.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Email");
+
                     b.Property<byte[]>("PasswordHash");
 
                     b.Property<byte[]>("PasswordSalt");
-
-                    b.Property<string>("Username");
 
                     b.HasKey("Id");
 

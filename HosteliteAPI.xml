@@ -4,15 +4,93 @@
         <name>HosteliteAPI</name>
     </assembly>
     <members>
+        <member name="T:HosteliteAPI.Data.AuthRepository">
+            <summary>
+            the Authrepository that acts a layer of abstraction between our controller and entity framework. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HosteliteAPI.Data.AuthRepository.#ctor(HosteliteAPI.Models.ApplicationDbContext)">
+            <summary>
+            injecting the entity framework database context
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HosteliteAPI.Data.AuthRepository.Register(HosteliteAPI.Models.User,System.String)">
+            <summary>
+            the Authrepository register method
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HosteliteAPI.Data.AuthRepository.Login(System.String,System.String)">
+            <summary>
+            the Authrepository login method 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HosteliteAPI.Data.AuthRepository.UserExists(System.String)">
+            <summary>
+            the Authrepository user exists method
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HosteliteAPI.Data.IAuthRepository">
+            <summary>
+            the interface for the Authrepository 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HosteliteAPI.Data.IAuthRepository.Register(HosteliteAPI.Models.User,System.String)">
+            <summary>
+            the register interface for the Authrepository
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HosteliteAPI.Data.IAuthRepository.Login(System.String,System.String)">
+            <summary>
+            the login interface for the Authrepository
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HosteliteAPI.Data.IAuthRepository.UserExists(System.String)">
+            <summary>
+            the user exist interface for the Authrepository 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HosteliteAPI.Controllers.AuthController">
+            <summary>
+            the Auth controller responsible for controlling our auth APIs
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HosteliteAPI.Controllers.AuthController.#ctor(HosteliteAPI.Data.IAuthRepository,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            injecting the Authrepository repository context that interfaces with the entity framework.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HosteliteAPI.Controllers.AuthController.Register(HosteliteAPI.Dtos.UserForRegisterDto)">
+            <summary>
+            an async API method for registring users 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HosteliteAPI.Controllers.AuthController.Login(HosteliteAPI.Dtos.UserForLoginDto)">
+            <summary>
+            an async API method for logging in users 
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:HosteliteAPI.Controllers.HostelsController">
             <summary>
-            The hostel API for CRUD communication with our database
+            the hostel controller class responsible for controlling our hostel APIs
             </summary>
             <returns></returns>
         </member>
         <member name="M:HosteliteAPI.Controllers.HostelsController.#ctor(HosteliteAPI.Models.ApplicationDbContext)">
             <summary>
-            This API DbContext communication
+            injecting our DbContext
             </summary>
             <returns></returns>
         </member>
@@ -48,6 +126,522 @@
             This API deletes the specified hostel from the database
             </summary>
             <param name="id"> Mandatory </param>
+            <returns></returns>
+        </member>
+        <member name="T:HosteliteAPI.Dtos.AddHostelDto">
+            <summary>
+            the login dto that interfaces with the user input and the user database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.AddHostelDto.HostelName">
+            <summary>
+            the login dto that interfaces with the user input and the user database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.AddHostelDto.HostelAddress">
+            <summary>
+            the login dto that interfaces with the user input and the user database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.AddHostelDto.HostelLocation">
+            <summary>
+            the login dto that interfaces with the user input and the user database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.AddHostelDto.HostelType">
+            <summary>
+            the login dto that interfaces with the user input and the user database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.AddHostelDto.HostelNumberOfRooms">
+            <summary>
+            the login dto that interfaces with the user input and the user database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.AddHostelDto.HostelDescription">
+            <summary>
+            the login dto that interfaces with the user input and the user database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.AddHostelDto.VacantRoom">
+            <summary>
+            the login dto that interfaces with the user input and the user database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.AddHostelDto.HostelSlug">
+            <summary>
+            the login dto that interfaces with the user input and the user database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.AddHostelDto.RentPerRoom">
+            <summary>
+            the login dto that interfaces with the user input and the user database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.AddHostelDto.CreatedHostel">
+            <summary>
+            the login dto that interfaces with the user input and the user database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.PhotosForDetailedDto.Id">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.PhotosForDetailedDto.Url">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.PhotosForDetailedDto.DateAdded">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.UserForDetailedDtos.Id">
+            <summary>
+            The primary key: autogenerated value
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.UserForDetailedDtos.Email">
+            <summary>
+            The email field that holds a unique email address of every user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.UserForDetailedDtos.Firstname">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.UserForDetailedDtos.Lastname">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.UserForDetailedDtos.Gender">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.UserForDetailedDtos.Age">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.UserForDetailedDtos.DateJoined">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.UserForDetailedDtos.PhotoUrl">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.UserForDetailedDtos.Photos">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.UserForListDto.Id">
+            <summary>
+            The primary key: autogenerated value
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.UserForListDto.Email">
+            <summary>
+            The email field that holds a unique email address of every user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.UserForListDto.Firstname">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.UserForListDto.Lastname">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.UserForListDto.Gender">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.UserForListDto.Age">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.UserForListDto.DateJoined">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.UserForListDto.PhotoUrl">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HosteliteAPI.Dtos.UserForLoginDto">
+            <summary>
+            the login dto that interfaces with the user input and the user database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.UserForLoginDto.Email">
+            <summary>
+            maps to the email field of the user database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.UserForLoginDto.Password">
+            <summary>
+            use in generating the passwordhash field in the user database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HosteliteAPI.Dtos.UserForRegisterDto">
+            <summary>
+            the register dto that interfaces with the user input and the user database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.UserForRegisterDto.Email">
+            <summary>
+            maps to the email field of the user database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.UserForRegisterDto.Password">
+            <summary>
+            use in generating the passwordhash field in the user database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HosteliteAPI.Helpers.Extensions">
+            <summary>
+            use for adding headers to our http response displaying the error in our backend if any in production mode
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HosteliteAPI.Helpers.Extensions.AddApplicationError(Microsoft.AspNetCore.Http.HttpResponse,System.String)">
+            <summary>
+            use for adding headers to our http response displaying the error in our backend if any in production mode
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HosteliteAPI.Migrations.Initial">
+            <summary>
+            database migration
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HosteliteAPI.Migrations.Initial.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <summary>
+            database migration
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HosteliteAPI.Migrations.Initial.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <summary>
+            database migration
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HosteliteAPI.Migrations.Initial.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            database migration
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HosteliteAPI.Models.ApplicationDbContext">
+            <summary>
+            The entity framework database context class
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HosteliteAPI.Models.ApplicationDbContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{HosteliteAPI.Models.ApplicationDbContext})">
+            <summary>
+            The entity framework database context class constructor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.ApplicationDbContext.Hostels">
+            <summary>
+            registring our hostel model to the entity framework database context
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.ApplicationDbContext.Users">
+            <summary>
+            registring our user model to the entity framework database context
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.ApplicationDbContext.Photos">
+            <summary>
+            registring our user model to the entity framework database context
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HosteliteAPI.Models.Hostel">
+            <summary>
+            The hostel model abstraction that stores the neccessary information on a particular hostel
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.Hostel.ID">
+            <summary>
+            The primary key: autogenerated value
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.Hostel.HostelName">
+            <summary>
+            The hostel name field that holds the hostel name
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.Hostel.HostelAddress">
+            <summary>
+            The hostel address field that holds a unique address for every hostel
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.Hostel.HostelLocation">
+            <summary>
+            The hostel location field that holds the location of the hostel 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.Hostel.HostelType">
+            <summary>
+            The hostel type field that holds the type of rooms in the hostel
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.Hostel.HostelNumberOfRooms">
+            <summary>
+            The hostel number field that holds the number of rooms in the hostel
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.Hostel.HostelDescription">
+            <summary>
+            The hostel description field that holds a detail description of the essentail facilities in the hostel
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.Hostel.VacantRoom">
+            <summary>
+            The vacant room field that signifies if rooms are vacant in the hostel
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.Hostel.HostelSlug">
+            <summary>
+            The hostel slug field that holds a concantanation of various hostel model fields for making a friendly url
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.Hostel.RentPerRoom">
+            <summary>
+            The rent field that holds the rent price for the rooms in the hostel
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.Hostel.CreatedHostel">
+            <summary>
+            The hostel created field that holds the time and date an hostel was created and added to the db
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HosteliteAPI.Models.Photo">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.Photo.Id">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.Photo.Url">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.Photo.DateAdded">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.Photo.User">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.Photo.UserId">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HosteliteAPI.Models.User">
+            <summary>
+            The user model abstraction that stores a user credentails
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.User.Id">
+            <summary>
+            The primary key: autogenerated value
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.User.Email">
+            <summary>
+            The email field that holds a unique email address of every user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.User.PasswordHash">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.User.PasswordSalt">
+            <summary>
+            The password salt field that holds a salt parameter used for transforming the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.User.Firstname">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.User.Lastname">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.User.Gender">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.User.DOB">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.User.DateJoined">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.User.Photos">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HosteliteAPI.Models.User.#ctor">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HosteliteAPI.Program">
+            <summary>
+            This class is responsible for building and starting up our application on the web browser via a IIS Express server
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HosteliteAPI.Program.Main(System.String[])">
+            <summary>
+            This method instantiates the building our of app
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HosteliteAPI.Program.CreateWebHostBuilder(System.String[])">
+            <summary>
+            This class bootstraps the startup class to startup and host our app for access in the browser
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HosteliteAPI.Startup">
+            <summary>
+            The bootstrapped class for building and starting up our webapp
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HosteliteAPI.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            The bootstrapped class constructor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Startup.Configuration">
+            <summary>
+            The bootstrapped class property
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HosteliteAPI.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method is where we register our services for dependency injection into our webapp
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HosteliteAPI.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment,HosteliteAPI.Dtos.Seed)">
+            <summary>
+            This method is the pipeline for our requests into our webapp
+            </summary>
             <returns></returns>
         </member>
     </members>

@@ -2,22 +2,21 @@
 
 namespace HosteliteAPI.Migrations
 {
-    public partial class UserModelAdded : Migration
+    public partial class UserModelextended2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.RenameColumn(
-                name: "id",
+            migrationBuilder.AddColumn<string>(
+                name: "Gender",
                 table: "Users",
-                newName: "Id");
+                nullable: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.RenameColumn(
-                name: "Id",
-                table: "Users",
-                newName: "id");
+            migrationBuilder.DropColumn(
+                name: "Gender",
+                table: "Users");
         }
     }
 }

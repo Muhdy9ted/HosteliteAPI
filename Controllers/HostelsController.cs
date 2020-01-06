@@ -10,7 +10,7 @@ using HosteliteAPI.Models;
 namespace HosteliteAPI.Controllers
 {
     /// <summary>
-    /// The hostel API for CRUD communication with our database
+    /// the hostel controller class responsible for controlling our hostel APIs
     /// </summary>
     /// <returns></returns>
     [Route("api/[controller]")]
@@ -20,7 +20,7 @@ namespace HosteliteAPI.Controllers
         private readonly ApplicationDbContext _context;
 
         /// <summary>
-        /// This API DbContext communication
+        /// injecting our DbContext
         /// </summary>
         /// <returns></returns>
         public HostelsController(ApplicationDbContext context)
@@ -28,23 +28,23 @@ namespace HosteliteAPI.Controllers
             _context = context;
         }
 
-        // GET: api/Hostels
         /// <summary>
         /// This API lists all the hostels we have at the moment
         /// </summary>
         /// <returns></returns>
+        // GET: api/Hostels
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Hostel>>> GetHostels()
         {
             return await _context.Hostels.ToListAsync();
         }
 
-        // GET: api/Hostels/5
         /// <summary>
         /// This API gets a particular hostel from the database
         /// </summary>
         /// <param name="id"> Mandatory </param>
         /// <returns></returns>
+        // GET: api/Hostels/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Hostel>> GetHostel(int id)
         {
@@ -58,13 +58,13 @@ namespace HosteliteAPI.Controllers
             return hostel;
         }
 
-        // PUT: api/Hostels/5
         /// <summary>
         /// This API lets you edit the details of the specified hostel in the database
         /// </summary>
         /// <param name="id"> Mandatory </param>
         /// <param name="hostel"> The hostel object </param>
         /// <returns></returns>
+        // PUT: api/Hostels/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutHostel(int id, Hostel hostel)
         {
@@ -94,11 +94,11 @@ namespace HosteliteAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Hostels
         /// <summary>
         /// This API saves a new hostel to the database
         /// </summary>
         /// <returns></returns>
+        // POST: api/Hostels
         [HttpPost]
         public async Task<ActionResult<Hostel>> PostHostel(Hostel hostel)
         {
@@ -108,12 +108,12 @@ namespace HosteliteAPI.Controllers
             return CreatedAtAction("GetHostel", new { id = hostel.ID }, hostel);
         }
 
-        // DELETE: api/Hostels/5
         /// <summary>
         /// This API deletes the specified hostel from the database
         /// </summary>
         /// <param name="id"> Mandatory </param>
         /// <returns></returns>
+        // DELETE: api/Hostels/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Hostel>> DeleteHostel(int id)
         {
