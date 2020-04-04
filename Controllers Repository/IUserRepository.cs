@@ -17,5 +17,7 @@ namespace HosteliteAPI.Controllers_Repository
         Task<IEnumerable<User>> GetUsers();
 
         Task<User> GetUser(int id);
+
+        Task<User> sendToken(string token);
     }
 }

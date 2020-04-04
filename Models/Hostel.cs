@@ -78,5 +78,9 @@ namespace HosteliteAPI.Models
         /// </summary>
         /// <returns></returns>
         public DateTime CreatedHostel { get; set; }
+
+        public User user { get; set; }
+
+        public int userId { get; set; }
     }
 }

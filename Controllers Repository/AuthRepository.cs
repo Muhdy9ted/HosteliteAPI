@@ -57,36 +57,13 @@ namespace HosteliteAPI.Data
         /// the Authrepository login method 
         /// </summary>
         /// <returns></returns>
-        public async Task<User> Login(string email, string password)
+        public async Task<User> Login(string email)
         {
-        
-            var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == email);
-
-            if (user == null)
-                return null;
-
-            if (!VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
-                return null;
-
-            // Auth succesfull
-            return user;
-            
+          var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == email);
+          // Auth succesfull
+          return user;   
         }
-
-        private bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
-        {
-            using (var hmac = new System.Security.Cryptography.HMACSHA512(passwordSalt))
-            {
-               var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
-                for(int i = 0; i < computedHash.Length; i++)
-                {
-                    if (computedHash[i] != passwordHash[i])
-                        return false;
-                }
-            }
-            return true;
-        }
-
+    
         /// <summary>
         /// the Authrepository user exists method
         /// </summary>
@@ -97,6 +74,24 @@ namespace HosteliteAPI.Data
                 return true;
 
             return false;
+        }
+
+        /// <summary>
+        /// checks if user password matches with whats in db 
+        /// </summary>
+        /// <returns></returns>
+        public async Task<bool> VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
+        {
+          using ( var hmac = new System.Security.Cryptography.HMACSHA512(passwordSalt))
+          {
+            var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+            for (int i = 0; i < computedHash.Length; i++)
+            {
+              if (computedHash[i] != passwordHash[i])
+                return false;
+            }
+          }
+          return true;
         }
     }
 }

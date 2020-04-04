@@ -33,12 +33,19 @@ namespace HosteliteAPI.Controllers
             return Ok(usersToReturn);
         }
         
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name ="GetUser")]
         public async Task<IActionResult> GetUser( int id)
-        {
+        { 
             var user = await _repo.GetUser(id);
             var userToReturn = _mapper.Map<UserForDetailedDtos>(user);
             return Ok(userToReturn);
         }
+
+        ////POST: api/Users/profile
+        //[HttpPost("profile")]
+        //public async Task<IActionResult> userProfile([FromBody]string token)
+        //{
+          
+        //}
     }
 }

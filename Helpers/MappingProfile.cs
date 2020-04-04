@@ -20,6 +20,8 @@ namespace HosteliteAPI
                  .ForMember(dest => dest.Age, option => option.MapFrom(src => src.DOB.CalculateAge()));
 
             CreateMap<Photo, PhotosForDetailedDto>();
+
+            CreateMap<UserForRegisterDto, User>();
         }
     }
 }

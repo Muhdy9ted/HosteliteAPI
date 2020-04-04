@@ -22,7 +22,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:HosteliteAPI.Data.AuthRepository.Login(System.String,System.String)">
+        <member name="M:HosteliteAPI.Data.AuthRepository.Login(System.String)">
             <summary>
             the Authrepository login method 
             </summary>
@@ -31,6 +31,12 @@
         <member name="M:HosteliteAPI.Data.AuthRepository.UserExists(System.String)">
             <summary>
             the Authrepository user exists method
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HosteliteAPI.Data.AuthRepository.VerifyPasswordHash(System.String,System.Byte[],System.Byte[])">
+            <summary>
+            checks if user password matches with whats in db 
             </summary>
             <returns></returns>
         </member>
@@ -46,7 +52,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:HosteliteAPI.Data.IAuthRepository.Login(System.String,System.String)">
+        <member name="M:HosteliteAPI.Data.IAuthRepository.Login(System.String)">
             <summary>
             the login interface for the Authrepository
             </summary>
@@ -58,13 +64,19 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:HosteliteAPI.Data.IAuthRepository.VerifyPasswordHash(System.String,System.Byte[],System.Byte[])">
+            <summary>
+            checks if user password matches with whats in db 
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:HosteliteAPI.Controllers.AuthController">
             <summary>
             the Auth controller responsible for controlling our auth APIs
             </summary>
             <returns></returns>
         </member>
-        <member name="M:HosteliteAPI.Controllers.AuthController.#ctor(HosteliteAPI.Data.IAuthRepository,Microsoft.Extensions.Configuration.IConfiguration)">
+        <member name="M:HosteliteAPI.Controllers.AuthController.#ctor(HosteliteAPI.Data.IAuthRepository,Microsoft.Extensions.Configuration.IConfiguration,AutoMapper.IMapper)">
             <summary>
             injecting the Authrepository repository context that interfaces with the entity framework.
             </summary>
@@ -350,6 +362,37 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="P:HosteliteAPI.Dtos.UserForRegisterDto.firstname">
+            <summary>
+            use in generating the passwordhash field in the user database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.UserForRegisterDto.lastname">
+            <summary>
+            use in generating the passwordhash field in the user database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.UserForRegisterDto.DOB">
+            <summary>
+            use in generating the passwordhash field in the user database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.UserForRegisterDto.gender">
+            <summary>
+            use in generating the passwordhash field in the user database
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.UserForRegisterDto.DateJoined">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+            
+        </member>
         <member name="T:HosteliteAPI.Helpers.Extensions">
             <summary>
             use for adding headers to our http response displaying the error in our backend if any in production mode
@@ -583,14 +626,16 @@
             The password hash field that holds the hashed value of the user's password
             </summary>
             <returns></returns>
+            
         </member>
         <member name="P:HosteliteAPI.Models.User.Photos">
-            <summary>
-            The password hash field that holds the hashed value of the user's password
-            </summary>
-            <returns></returns>
+             <summary>
+             The password hash field that holds the hashed value of the user's password
+             </summary>
+             <returns></returns>
+            
         </member>
-        <member name="M:HosteliteAPI.Models.User.#ctor">
+        <member name="P:HosteliteAPI.Models.User.hostels">
             <summary>
             The password hash field that holds the hashed value of the user's password
             </summary>

@@ -23,12 +23,18 @@ namespace HosteliteAPI.Data
         /// the login interface for the Authrepository
         /// </summary>
         /// <returns></returns>
-        Task<User> Login(string username, string password);
+        Task<User> Login(string username);
 
         /// <summary>
         /// the user exist interface for the Authrepository 
         /// </summary>
         /// <returns></returns>
         Task<bool> UserExists(string username);
+
+    /// <summary>
+    /// checks if user password matches with whats in db 
+    /// </summary>
+    /// <returns></returns>
+    Task<bool> VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt);
     }
 }
