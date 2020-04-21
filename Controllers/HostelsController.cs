@@ -1,137 +1,135 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using HosteliteAPI.Models;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Threading.Tasks;
+//using Microsoft.AspNetCore.Http;
+//using Microsoft.AspNetCore.Mvc;
+//using Microsoft.EntityFrameworkCore;
+//using HosteliteAPI.Models;
+//using HosteliteAPI.Controllers_Repository;
+//using Microsoft.AspNetCore.Authorization;
 
-namespace HosteliteAPI.Controllers
-{
-    /// <summary>
-    /// the hostel controller class responsible for controlling our hostel APIs
-    /// </summary>
-    /// <returns></returns>
-    [Route("api/[controller]")]
-    [ApiController]
-    public class HostelsController : ControllerBase
-    {
-        private readonly ApplicationDbContext _context;
+//namespace HosteliteAPI.Controllers
+//{
+//  /// <summary>
+//  /// the hostel controller class responsible for controlling our hostel APIs
+//  /// </summary>
+//  /// <returns></returns>
+//    [Authorize]
+//    [Route("api/[controller]")]
+//    [ApiController]
+//    public class HostelsController : ControllerBase
+//    {
+//        private readonly IHostelRepository _repo;
 
-        /// <summary>
-        /// injecting our DbContext
-        /// </summary>
-        /// <returns></returns>
-        public HostelsController(ApplicationDbContext context)
-        {
-            _context = context;
-        }
+//        /// <summary>
+//        /// injecting our DbContext
+//        /// </summary>
+//        /// <returns></returns>
+//        public HostelsController(IHostelRepository repo)
+//        {
+//            _repo = repo;
+//        }
 
-        /// <summary>
-        /// This API lists all the hostels we have at the moment
-        /// </summary>
-        /// <returns></returns>
-        // GET: api/Hostels
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Hostel>>> GetHostels()
-        {
-            return await _context.Hostels.ToListAsync();
-        }
+//        /// <summary>
+//        /// This API lists all the hostels we have at the moment
+//        /// </summary>
+//        /// <returns></returns>
+//        // GET: api/Hostels
+//        [HttpGet]
+//        public async Task<IActionResult> GetHostels()
+//        {
+//            var hostels = await _repo.GetHostels();
+//            return Ok(hostels);
+//        }
 
-        /// <summary>
-        /// This API gets a particular hostel from the database
-        /// </summary>
-        /// <param name="id"> Mandatory </param>
-        /// <returns></returns>
-        // GET: api/Hostels/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Hostel>> GetHostel(int id)
-        {
-            var hostel = await _context.Hostels.FindAsync(id);
+//        /// <summary>
+//        /// This API gets a particular hostel from the database
+//        /// </summary>
+//        /// <param name="id"> Mandatory </param>
+//        /// <returns></returns>
+//        // GET: api/Hostels/5
+//        [HttpGet("{id}")]
+//        public async Task<IActionResult> GetHostel(int id)
+//        {
+//            var hostel = await _repo.GetHostel(id);
+//            return Ok(hostel);
+//        }
 
-            if (hostel == null)
-            {
-                return NotFound();
-            }
+//        /// <summary>
+//        /// This API lets you edit the details of the specified hostel in the database
+//        /// </summary>
+//        /// <param name="id"> Mandatory </param>
+//        /// <param name="hostel"> The hostel object </param>
+//        /// <returns></returns>
+//        // PUT: api/Hostels/5
+//        //[HttpPut("{id}")]
+//        //public async Task<IActionResult> PutHostel(int id, Hostel hostel)
+//        //{
+//        //    if (id != hostel.ID)
+//        //    {
+//        //        return BadRequest();
+//        //    }
 
-            return hostel;
-        }
+//        //    _context.Entry(hostel).State = EntityState.Modified;
 
-        /// <summary>
-        /// This API lets you edit the details of the specified hostel in the database
-        /// </summary>
-        /// <param name="id"> Mandatory </param>
-        /// <param name="hostel"> The hostel object </param>
-        /// <returns></returns>
-        // PUT: api/Hostels/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutHostel(int id, Hostel hostel)
-        {
-            if (id != hostel.ID)
-            {
-                return BadRequest();
-            }
+//        //    try
+//        //    {
+//        //        await _context.SaveChangesAsync();
+//        //    }
+//        //    catch (DbUpdateConcurrencyException)
+//        //    {
+//        //        if (!HostelExists(id))
+//        //        {
+//        //            return NotFound();
+//        //        }
+//        //        else
+//        //        {
+//        //            throw;
+//        //        }
+//        //    }
 
-            _context.Entry(hostel).State = EntityState.Modified;
+//        //    return NoContent();
+//        //}
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!HostelExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+//        /// <summary>
+//        /// This API saves a new hostel to the database
+//        /// </summary>
+//        /// <returns></returns>
+//        // POST: api/Hostels
+//        //[HttpPost]
+//        //public async Task<ActionResult<Hostel>> PostHostel(Hostel hostel)
+//        //{
+//        //    _context.Hostels.Add(hostel);
+//        //    await _context.SaveChangesAsync();
 
-            return NoContent();
-        }
+//        //    return CreatedAtAction("GetHostel", new { id = hostel.ID }, hostel);
+//        //}
 
-        /// <summary>
-        /// This API saves a new hostel to the database
-        /// </summary>
-        /// <returns></returns>
-        // POST: api/Hostels
-        [HttpPost]
-        public async Task<ActionResult<Hostel>> PostHostel(Hostel hostel)
-        {
-            _context.Hostels.Add(hostel);
-            await _context.SaveChangesAsync();
+//        /// <summary>
+//        /// This API deletes the specified hostel from the database
+//        /// </summary>
+//        /// <param name="id"> Mandatory </param>
+//        /// <returns></returns>
+//        // DELETE: api/Hostels/5
+//        //[HttpDelete("{id}")]
+//        //public async Task<ActionResult<Hostel>> DeleteHostel(int id)
+//        //{
+//        //    var hostel = await _context.Hostels.FindAsync(id);
+//        //    if (hostel == null)
+//        //    {
+//        //        return NotFound();
+//        //    }
 
-            return CreatedAtAction("GetHostel", new { id = hostel.ID }, hostel);
-        }
+//        //    _context.Hostels.Remove(hostel);
+//        //    await _context.SaveChangesAsync();
 
-        /// <summary>
-        /// This API deletes the specified hostel from the database
-        /// </summary>
-        /// <param name="id"> Mandatory </param>
-        /// <returns></returns>
-        // DELETE: api/Hostels/5
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<Hostel>> DeleteHostel(int id)
-        {
-            var hostel = await _context.Hostels.FindAsync(id);
-            if (hostel == null)
-            {
-                return NotFound();
-            }
+//        //    return hostel;
+//        //}
 
-            _context.Hostels.Remove(hostel);
-            await _context.SaveChangesAsync();
-
-            return hostel;
-        }
-
-        private bool HostelExists(int id)
-        {
-            return _context.Hostels.Any(e => e.ID == id);
-        }
-    }
-}
+//        //private bool HostelExists(int id)
+//        //{
+//        //    return _context.Hostels.Any(e => e.ID == id);
+//        //}
+//    }
+//}

@@ -72,31 +72,24 @@ namespace HosteliteAPI.Controllers
     //POST: api/Auth/login
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody]UserForLoginDto userForLoginDto)
-    {
+    {  
+      //throw new Exception( "computer says no");
       var userFromRepo = await _repo.Login(userForLoginDto.Email.ToLower());
-
       if (userFromRepo == null)
-        return Json(new ResponseModel()
-        {
-          state = RequestState.failed,
-          msg = "Email and Password combination doesn't exist"
-        });
-      else if (!await _repo.VerifyPasswordHash(userForLoginDto.Password, userFromRepo.PasswordHash, 
-              userFromRepo.PasswordSalt))
       {
-        return Json(new ResponseModel()
-        {
-          state = RequestState.failed,
-          msg = "Email and Password combination does not exist"
-        });
+        return Unauthorized();
+      }
+      else if (!await _repo.VerifyPasswordHash(userForLoginDto.Password, userFromRepo.PasswordHash,userFromRepo.PasswordSalt))
+      {
+        return Unauthorized();
       }
       else
       {
         var claims = new[]
             {
-                new Claim(ClaimTypes.NameIdentifier, userFromRepo.Id.ToString()),
-                new Claim(ClaimTypes.Name, userFromRepo.Email.ToString())
-            };
+                  new Claim(ClaimTypes.NameIdentifier, userFromRepo.Id.ToString()),
+                  new Claim(ClaimTypes.Name, userFromRepo.Firstname.ToString())
+              };
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetSection("AppSettings:Token").Value));
 
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
@@ -110,34 +103,80 @@ namespace HosteliteAPI.Controllers
         var tokenHandler = new JwtSecurityTokenHandler();
         var token = tokenHandler.CreateToken(tokenDescriptor);
 
-        //return Ok(new { token = tokenHandler.WriteToken(token) });
-        return Json(new ResponseModel()
-        {
-          state = RequestState.success,
-          msg = "",
-          data = tokenHandler.WriteToken(token)
-        });
+        return Ok(new { token = tokenHandler.WriteToken(token) });
+        
+        //using responseModel for returning error.. i stopped using it
+        //return Json(new ResponseModel()
+        //{
+        //  state = RequestState.success,
+        //  msg = "",
+        //  data = tokenHandler.WriteToken(token)
+        //});
+
+        //if (userFromRepo == null)
+        //  return Json(new ResponseModel()
+        //  {
+        //    state = RequestState.failed,
+        //    msg = "Email and Password combination doesn't exist"
+        //  });
+        //else if (!await _repo.VerifyPasswordHash(userForLoginDto.Password, userFromRepo.PasswordHash, 
+        //        userFromRepo.PasswordSalt))
+        //{
+        //  return Json(new ResponseModel()
+        //  {
+        //    state = RequestState.failed,
+        //    msg = "Email and Password combination does not exist"
+        //  });
+        //}
+        //else
+        //{
+        //  var claims = new[]
+        //      {
+        //          new Claim(ClaimTypes.NameIdentifier, userFromRepo.Id.ToString()),
+        //          new Claim(ClaimTypes.Name, userFromRepo.Email.ToString())
+        //      };
+        //  var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetSection("AppSettings:Token").Value));
+
+        //  var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+
+        //  var tokenDescriptor = new SecurityTokenDescriptor
+        //  {
+        //    Subject = new ClaimsIdentity(claims),
+        //    Expires = DateTime.Now.AddDays(1),
+        //    SigningCredentials = creds
+        //  };
+        //  var tokenHandler = new JwtSecurityTokenHandler();
+        //  var token = tokenHandler.CreateToken(tokenDescriptor);
+
+        //  //return Ok(new { token = tokenHandler.WriteToken(token) });
+        //  return Json(new ResponseModel()
+        //  {
+        //    state = RequestState.success,
+        //    msg = "",
+        //    data = tokenHandler.WriteToken(token)
+        //  });
 
       }
-      //generate token
+    //generate token
 
-      //var tokenHandler = new JwtSecurityTokenHandler();
-      //var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetSection("AppSettings:Token").Value));
-      //var tokenDescriptor = new SecurityTokenDescriptor
-      //{
-      //  Subject = new ClaimsIdentity(new Claim[]
-      //{
-      //new Claim(ClaimTypes.NameIdentifier, userFromRepo.Id.ToString()),
-      //new Claim(ClaimTypes.Name, userFromRepo.Email.ToString())
-      //}),
+    //var tokenHandler = new JwtSecurityTokenHandler();
+    //var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetSection("AppSettings:Token").Value));
+    //var tokenDescriptor = new SecurityTokenDescriptor
+    //{
+    //  Subject = new ClaimsIdentity(new Claim[]
+    //{
+    //new Claim(ClaimTypes.NameIdentifier, userFromRepo.Id.ToString()),
+    //new Claim(ClaimTypes.Name, userFromRepo.Email.ToString())
+    //}),
 
-      //Expires = DateTime.Now.AddDays(1),
-      //SigningCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature)
-      //};
-      //var token = tokenHandler.CreateToken(tokenDescriptor);
-      //var tokenString = tokenHandler.WriteToken(token);
+    //Expires = DateTime.Now.AddDays(1),
+    //SigningCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature)
+    //};
+    //var token = tokenHandler.CreateToken(tokenDescriptor);
+    //var tokenString = tokenHandler.WriteToken(token);
 
-      //return Ok(new { tokenString });
-    }
+    //return Ok(new { tokenString });
+  }
+
   }
 }

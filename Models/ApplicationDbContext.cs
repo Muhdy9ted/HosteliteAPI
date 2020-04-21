@@ -19,11 +19,17 @@ namespace HosteliteAPI.Models
         /// <returns></returns>
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options){ }
 
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //  //fluet API
+        //  modelBuilder.Entity<Photo>().HasOne(p => p.Hostel).WithMany(h => h.Photos).OnDelete(DeleteBehavior.SetNull);
+        //}
+
         /// <summary>
         /// registring our hostel model to the entity framework database context
         /// </summary>
         /// <returns></returns>
-        public DbSet<Hostel> Hostels { get; set; }
+        //public DbSet<Hostel> Hostels { get; set; }
 
         /// <summary>
         /// registring our user model to the entity framework database context

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
@@ -79,8 +80,17 @@ namespace HosteliteAPI.Models
         /// <returns></returns>
         public DateTime CreatedHostel { get; set; }
 
+        public ICollection<Photo> Photos { get; set; }
+
         public User user { get; set; }
 
         public int userId { get; set; }
+
+        public Hostel()
+        {
+          Photos = new Collection<Photo>();
+
+          CreatedHostel = DateTime.Now;
+        }
     }
 }

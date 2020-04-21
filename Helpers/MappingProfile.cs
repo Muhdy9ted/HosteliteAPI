@@ -11,7 +11,7 @@ namespace HosteliteAPI
         public MappingProfile()
         {
             CreateMap<User, UserForListDto>().ForMember(dest => dest.PhotoUrl,
-                option => option.MapFrom(src => src.Photos.FirstOrDefault().Url))
+                option => option.MapFrom(src => src.Photos.FirstOrDefault(p=> p.IsMain).Url))
                 .ForMember(dest => dest.Age, option => option.MapFrom(src => src.DOB.CalculateAge()));
                
 

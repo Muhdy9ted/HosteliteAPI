@@ -19,41 +19,6 @@ namespace HosteliteAPI.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("HosteliteAPI.Models.Hostel", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreatedHostel");
-
-                    b.Property<string>("HostelAddress");
-
-                    b.Property<string>("HostelDescription");
-
-                    b.Property<string>("HostelLocation");
-
-                    b.Property<string>("HostelName");
-
-                    b.Property<int>("HostelNumberOfRooms");
-
-                    b.Property<string>("HostelSlug");
-
-                    b.Property<string>("HostelType");
-
-                    b.Property<double>("RentPerRoom");
-
-                    b.Property<bool>("VacantRoom");
-
-                    b.Property<int>("userId");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("userId");
-
-                    b.ToTable("Hostels");
-                });
-
             modelBuilder.Entity("HosteliteAPI.Models.Photo", b =>
                 {
                     b.Property<int>("Id")
@@ -61,6 +26,8 @@ namespace HosteliteAPI.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("DateAdded");
+
+                    b.Property<bool>("IsMain");
 
                     b.Property<string>("Url");
 
@@ -100,14 +67,6 @@ namespace HosteliteAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("HosteliteAPI.Models.Hostel", b =>
-                {
-                    b.HasOne("HosteliteAPI.Models.User", "user")
-                        .WithMany("hostel")
-                        .HasForeignKey("userId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("HosteliteAPI.Models.Photo", b =>

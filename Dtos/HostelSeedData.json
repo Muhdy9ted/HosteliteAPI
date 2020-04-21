@@ -1,0 +1,142 @@
+[
+  {
+    "HostelName": "Digial",
+    "HostelAddress": "2 Ira Court,Osmond,Georgia",
+    "HostelLocation": "Cassel",
+    "HostelType": 3,
+    "HostelNumberOfRooms": 8,
+    "HostelDescription": "Dolor ut duis esse minim do culpa. Enim nulla nulla esse exercitation. Quis occaecat commodo nisi irure aliquip exercitation ipsum voluptate sit commodo amet.",
+    "VacantRoom": false,
+    "HostelSlug": "Voratak-5-Middleton Street-Sunwest-South Carolina",
+    "RentPerRoom": 720.1378,
+    "CreatedHostel": "2014-08-01T02:19:33 -01:00",
+    "user": {},
+    "userId": "0",
+    "photos": [
+      {
+        "url": "https://randomuser.me/api/portraits/men/9.jpg",
+        "DateAdded": "2014-08-01T02:19:33 -01:00"
+      }
+    ]
+  },
+  {
+    "HostelName": "Uneeq",
+    "HostelAddress": "9 Turner Place,Naomi,Illinois",
+    "HostelLocation": "Cartwright",
+    "HostelType": 2,
+    "HostelNumberOfRooms": 7,
+    "HostelDescription": "Veniam ullamco adipisicing reprehenderit sunt consequat nulla et ipsum esse sit aute aliquip. Consequat esse duis in ad id nisi eiusmod nostrud nostrud culpa eu laborum. Reprehenderit consectetur quis aliqua est ut.",
+    "VacantRoom": true,
+    "HostelSlug": "Shopabout-10-Sedgwick Place-Stouchsburg-Missouri",
+    "RentPerRoom": 468.9971,
+    "CreatedHostel": "2014-08-01T02:19:33 -01:00",
+    "user": {},
+    "userId": "2",
+    "photos": [
+      {
+        "url": "https://randomuser.me/api/portraits/men/9.jpg",
+        "DateAdded": "2018-11-16T07:24:57 -01:00"
+      }
+    ]
+  },
+  {
+    "HostelName": "Amtap",
+    "HostelAddress": "3 Manhattan Court,Bladensburg,Wyoming",
+    "HostelLocation": "Tyhee",
+    "HostelType": 3,
+    "HostelNumberOfRooms": 7,
+    "HostelDescription": "Ex ad sint est incididunt nulla et ex aliquip elit ea mollit ad. Ex esse laborum minim officia deserunt officia enim fugiat in quis dolore. Irure occaecat duis do consectetur ad sit voluptate.",
+    "VacantRoom": false,
+    "HostelSlug": "Zidant-1-Oriental Boulevard-Noxen-Michigan",
+    "RentPerRoom": 801.8054,
+    "CreatedHostel": "2014-08-01T02:19:33 -01:00",
+    "user": {},
+    "userId": "3",
+    "photos": [
+      {
+        "url": "https://randomuser.me/api/portraits/men/7.jpg",
+        "DateAdded": "2016-01-22T11:16:20 -01:00"
+      }
+    ]
+  },
+  {
+    "HostelName": "Zboo",
+    "HostelAddress": "5 Cumberland Walk,Hartsville/Hartley,Tennessee",
+    "HostelLocation": "Watrous",
+    "HostelType": 1,
+    "HostelNumberOfRooms": 4,
+    "HostelDescription": "Qui aute ad tempor ad ea ex. Sint commodo culpa mollit minim consectetur anim magna. Voluptate dolore et elit occaecat dolor proident ea Lorem.",
+    "VacantRoom": true,
+    "HostelSlug": "Scentric-9-Calder Place-Spokane-Florida",
+    "RentPerRoom": 595.7689,
+    "CreatedHostel": "2014-08-01T02:19:33 -01:00",
+    "user": {},
+    "userId": "4",
+    "photos": [
+      {
+        "url": "https://randomuser.me/api/portraits/men/10.jpg",
+        "DateAdded": "2018-08-26T06:29:26 -01:00"
+      }
+    ]
+  },
+  {
+    "HostelName": "Perkle",
+    "HostelAddress": "10 Times Placez,Baden,Vermont",
+    "HostelLocation": "Dexter",
+    "HostelType": 3,
+    "HostelNumberOfRooms": 5,
+    "HostelDescription": "Laboris eu commodo ea reprehenderit aliquip voluptate aliquip reprehenderit commodo do ea enim et reprehenderit. Mollit non exercitation est irure minim id magna incididunt incididunt aliqua. Veniam voluptate nisi labore elit culpa exercitation in quis.",
+    "VacantRoom": false,
+    "HostelSlug": "Senmao-8-Chase Court-Chesterfield-Oklahoma",
+    "RentPerRoom": 407.0939,
+    "CreatedHostel": "2014-08-01T02:19:33 -01:00",
+    "user": {},
+    "userId": "5",
+    "photos": [
+      {
+        "url": "https://randomuser.me/api/portraits/men/1.jpg",
+        "DateAdded": "2017-11-01T12:20:17 -01:00"
+      }
+    ]
+  },
+  {
+    "HostelName": "Kidstock",
+    "HostelAddress": "10 Kermit Place,Leland,Nebraska",
+    "HostelLocation": "Walland",
+    "HostelType": 2,
+    "HostelNumberOfRooms": 5,
+    "HostelDescription": "Aliqua incididunt mollit qui reprehenderit non deserunt et occaecat eiusmod sint. Dolore commodo irure pariatur commodo velit nostrud cillum ut irure proident sunt deserunt. Fugiat esse dolore ut aliqua exercitation dolor ad duis est amet esse.",
+    "VacantRoom": false,
+    "HostelSlug": "Sealoud-7-Douglass Street-Kersey-Northern Mariana Islands",
+    "RentPerRoom": 301.8559,
+    "CreatedHostel": "2014-08-01T02:19:33 -01:00",
+    "user": {},
+    "userId":  "8",
+    "photos": [
+      {
+        "url": "https://randomuser.me/api/portraits/men/10.jpg",
+        "DateAdded": "2017-08-14T07:36:41 -01:00"
+      }
+    ]
+  },
+  {
+    "HostelName": "Geekmosis",
+    "HostelAddress": "6 Strauss Street,Strong,Connecticut",
+    "HostelLocation": "Glenshaw",
+    "HostelType": 3,
+    "HostelNumberOfRooms": 3,
+    "HostelDescription": "Et ut aliqua reprehenderit occaecat enim consectetur excepteur. Dolor qui in sit amet adipisicing magna aute aliquip. Tempor anim aliquip velit elit culpa aliquip irure enim.",
+    "VacantRoom": true,
+    "HostelSlug": "Premiant-3-Ridgewood Avenue-Collins-New Jersey",
+    "RentPerRoom": 621.6692,
+    "CreatedHostel": "2014-08-01T02:19:33 -01:00",
+    "user": {},
+    "userId": "9",
+    "photos": [
+      {
+        "url": "https://randomuser.me/api/portraits/men/5.jpg",
+        "DateAdded": "2016-11-10T06:52:49 -01:00"
+      }
+    ]
+  }
+]

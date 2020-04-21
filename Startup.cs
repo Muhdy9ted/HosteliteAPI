@@ -106,6 +106,7 @@ namespace HosteliteAPI
             services.AddCors();
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+            //services.AddScoped<IHostelRepository, HostelRepository>();
         }
 
 
@@ -118,46 +119,47 @@ namespace HosteliteAPI
         {
             if (env.IsDevelopment())
             {
-                //app.UseDeveloperExceptionPage();
-
-                app.UseExceptionHandler(builder =>
+              //app.UseDeveloperExceptionPage();
+              app.UseExceptionHandler(builder =>
+              {
+                builder.Run(async context =>
                 {
-                  builder.Run(async context =>
-                  {
-                    context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                  context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
 
-                    var error = context.Features.Get<IExceptionHandlerFeature>();
-                    if (error != null)
-                    {
-                      context.Response.AddApplicationError(error.Error.Message);
-                      await context.Response.WriteAsync(error.Error.Message);
-                    }
-                  });
+                  var error = context.Features.Get<IExceptionHandlerFeature>();
+                  if (error != null)
+                  {
+                    context.Response.AddApplicationError(error.Error.Message);
+                    await context.Response.WriteAsync(error.Error.Message);
+                  }
                 });
-      }
+              });
+            }
             else
             {
-                app.UseExceptionHandler(builder =>
+              app.UseExceptionHandler(builder =>
+              {
+                builder.Run(async context =>
                 {
-                    builder.Run(async context =>
-                    {
-                        context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                  context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
 
-                        var error = context.Features.Get<IExceptionHandlerFeature>();
-                        if (error != null)
-                        {
-                            context.Response.AddApplicationError(error.Error.Message);
-                            await context.Response.WriteAsync(error.Error.Message);
-                        }
-                    });
+                  var error = context.Features.Get<IExceptionHandlerFeature>();
+                  if (error != null)
+                  {
+                    context.Response.AddApplicationError(error.Error.Message);
+                    await context.Response.WriteAsync(error.Error.Message);
+                  }
                 });
+              });
             }
+        
             app.UseSwagger();
 
             app.UseSwaggerUI(options =>
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "Hostelite API v1")
             );
-            // seed.SeedUsers();
+            seed.SeedUsers();
+            //seed.SeedHostels();
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials());
             app.UseAuthentication();
             app.UseMvc();

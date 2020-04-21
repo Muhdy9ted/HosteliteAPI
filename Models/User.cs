@@ -71,6 +71,8 @@ namespace HosteliteAPI.Models
         //[DatabaseGenerated(DatabaseGeneratedOption.Computed)]
         public DateTime DateJoined { get; set; }
 
+        public bool IsLandlord { get; set; }
+
         /// <summary>
         /// The password hash field that holds the hashed value of the user's password
         /// </summary>
@@ -78,18 +80,17 @@ namespace HosteliteAPI.Models
         ///
         public ICollection<Photo> Photos { get; set; }
 
-        public bool IsLandlord { get; set; }
         /// <summary>
         /// The password hash field that holds the hashed value of the user's password
         /// </summary>
         /// <returns></returns>
 
-        public ICollection<Hostel> hostels { get; set; }
+        //public ICollection<Hostel> hostels { get; set; }
         public User()
         {
             Photos = new Collection<Photo>();
 
-            hostels = new Collection<Hostel>();
+            //hostels = new Collection<Hostel>();
 
             DateJoined = DateTime.Now;
         }

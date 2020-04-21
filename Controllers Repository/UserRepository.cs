@@ -42,31 +42,31 @@ namespace HosteliteAPI.Controllers_Repository
             return users;
         }
 
-        public async Task<string> sendToken(string token)
-        {
-           string secret = "super secret key";
-            var key = Encoding.ASCII.GetBytes(secret);
-            var handler = new JwtSecurityTokenHandler();
-            var validations = new TokenValidationParameters
-              {
-                ValidateIssuerSigningKey = true,
-                IssuerSigningKey = new SymmetricSecurityKey(key),
-                ValidateIssuer = false,
-                ValidateAudience = false
-              };
-            var claims = handler.ValidateToken(token, validations, out var securityToken);
-            Console.WriteLine(claims.Identity.Name);
-            return claims.Identity.Name;
+        //public async Task<string> sendToken(string token)
+        //{
+        //   string secret = "super secret key";
+        //    var key = Encoding.ASCII.GetBytes(secret);
+        //    var handler = new JwtSecurityTokenHandler();
+        //    var validations = new TokenValidationParameters
+        //      {
+        //        ValidateIssuerSigningKey = true,
+        //        IssuerSigningKey = new SymmetricSecurityKey(key),
+        //        ValidateIssuer = false,
+        //        ValidateAudience = false
+        //      };
+        //    var claims = handler.ValidateToken(token, validations, out var securityToken);
+        //    Console.WriteLine(claims.Identity.Name);
+        //    return claims.Identity.Name;
 
-        }
+        //}
         public async Task<bool> SaveAll()
         {
             return await _context.SaveChangesAsync() > 0;
         }
 
-    Task<User> IUserRepository.sendToken(string token)
-    {
-      throw new NotImplementedException();
-    }
+        //Task<User> IUserRepository.sendToken(string token)
+        //{
+        //  throw new NotImplementedException();
+        //}
   }
 }

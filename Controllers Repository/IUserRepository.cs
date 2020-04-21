@@ -18,6 +18,6 @@ namespace HosteliteAPI.Controllers_Repository
 
         Task<User> GetUser(int id);
 
-        Task<User> sendToken(string token);
+        //Task<User> sendToken(string token);
     }
 }

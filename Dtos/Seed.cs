@@ -1,6 +1,7 @@
 ﻿using HosteliteAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,5 +46,24 @@ namespace HosteliteAPI.Dtos
                 passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
             }
         }
+
+        //public void SeedHostels()
+        //{
+        //  _context.Hostels.RemoveRange(_context.Hostels);
+        //  _context.SaveChanges();
+        //  var hostelData = System.IO.File.ReadAllText("Dtos/HostelSeedData.json");
+        //  var hostels = JsonConvert.DeserializeObject<List<Hostel>>(hostelData);
+        //  var users = _context.Users.ToList();
+        //  var countUsers = users.Count;
+        //  Random rnd = new Random();
+        //  foreach ( var hostel in hostels)
+        //  {
+        //    int userId = rnd.Next(1, countUsers);
+        //    hostel.user = _context.Users.FirstOrDefault(u => u.Id == userId);
+        //    hostel.userId = userId;
+        //    _context.Hostels.Add(hostel);
+        //    _context.SaveChanges();
+        //  }
+        //}
     }
 }

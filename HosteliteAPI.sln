@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29230.47
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HosteliteAPI", "HosteliteAPI.csproj", "{516F0631-8593-43B4-961B-9AB035B0A5AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HosteliteAPI", "HosteliteAPI.csproj", "{516F0631-8593-43B4-961B-9AB035B0A5AF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C8E51CE6-E834-45D9-9383-5FF85560DEF0}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
