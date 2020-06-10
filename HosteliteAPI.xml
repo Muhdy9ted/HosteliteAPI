@@ -94,6 +94,31 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:HosteliteAPI.Controllers.HostelsController">
+            <summary>
+            the hostel controller class responsible for controlling our hostel APIs
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HosteliteAPI.Controllers.HostelsController.#ctor(HosteliteAPI.Controllers_Repository.IHostelRepository,AutoMapper.IMapper)">
+            <summary>
+            injecting our DbContext
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HosteliteAPI.Controllers.HostelsController.GetHostels">
+            <summary>
+            This API lists all the hostels we have at the moment
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HosteliteAPI.Controllers.HostelsController.GetHostel(System.Int32)">
+            <summary>
+            This API gets a particular hostel from the database
+            </summary>
+            <param name="id"> Mandatory </param>
+            <returns></returns>
+        </member>
         <member name="T:HosteliteAPI.Dtos.AddHostelDto">
             <summary>
             the login dto that interfaces with the user input and the user database
@@ -160,6 +185,66 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="P:HosteliteAPI.Dtos.HostelForListDto.HostelName">
+            <summary>
+            The hostel name field that holds the hostel name
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.HostelForListDto.HostelAddress">
+            <summary>
+            The hostel address field that holds a unique address for every hostel
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.HostelForListDto.HostelLocation">
+            <summary>
+            The hostel location field that holds the location of the hostel 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.HostelForListDto.HostelType">
+            <summary>
+            The hostel type field that holds the type of rooms in the hostel
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.HostelForListDto.VacantRoom">
+            <summary>
+            The vacant room field that signifies if rooms are vacant in the hostel
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.HostelForListDto.CreatedHostel">
+            <summary>
+            The hostel created field that holds the time and date an hostel was created and added to the db
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.HostelForListDto.PhotoUrl">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.HostelPhotosForDetailedDto.Id">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.HostelPhotosForDetailedDto.Url">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.HostelPhotosForDetailedDto.DateAdded">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
         <member name="P:HosteliteAPI.Dtos.HostelsForDetailedDto.HostelName">
             <summary>
             The hostel name field that holds the hostel name
@@ -220,6 +305,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="P:HosteliteAPI.Dtos.HostelsForDetailedDto.PhotoUrl">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
         <member name="P:HosteliteAPI.Dtos.HostelsForDetailedDto.Photos">
             <summary>
             The password hash field that holds the hashed value of the user's password
@@ -239,6 +330,12 @@
             <returns></returns>
         </member>
         <member name="P:HosteliteAPI.Dtos.PhotosForDetailedDto.DateAdded">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Dtos.PhotosForDetailedDto.IsMain">
             <summary>
             The password hash field that holds the hashed value of the user's password
             </summary>
@@ -437,6 +534,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="P:HosteliteAPI.Models.ApplicationDbContext.Hostels">
+            <summary>
+            registring our hostel model to the entity framework database context
+            </summary>
+            <returns></returns>
+        </member>
         <member name="P:HosteliteAPI.Models.ApplicationDbContext.Users">
             <summary>
             registring our user model to the entity framework database context
@@ -444,6 +547,12 @@
             <returns></returns>
         </member>
         <member name="P:HosteliteAPI.Models.ApplicationDbContext.Photos">
+            <summary>
+            registring our user model to the entity framework database context
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.ApplicationDbContext.HostelPhotos">
             <summary>
             registring our user model to the entity framework database context
             </summary>
@@ -521,6 +630,36 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="P:HosteliteAPI.Models.HostelPhoto.Id">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.HostelPhoto.Url">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.HostelPhoto.DateAdded">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.HostelPhoto.IsMain">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.HostelPhoto.PublicID">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:HosteliteAPI.Models.Photo">
             <summary>
             The password hash field that holds the hashed value of the user's password
@@ -546,6 +685,12 @@
             <returns></returns>
         </member>
         <member name="P:HosteliteAPI.Models.Photo.IsMain">
+            <summary>
+            The password hash field that holds the hashed value of the user's password
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HosteliteAPI.Models.Photo.PublicID">
             <summary>
             The password hash field that holds the hashed value of the user's password
             </summary>
@@ -631,7 +776,7 @@
              <returns></returns>
             
         </member>
-        <member name="M:HosteliteAPI.Models.User.#ctor">
+        <member name="P:HosteliteAPI.Models.User.hostels">
             <summary>
             The password hash field that holds the hashed value of the user's password
             </summary>

@@ -4,11 +4,12 @@
     "Password": "password",
     "Firstname": "Clara",
     "Lastname": "Watkins",
-    "DOB": "2019-06-16T02:10:32 -01:00",
+    "DOB": "1992-06-16T02:10:32 -01:00",
     "DateJoined": "2019-05-13T03:36:53 -01:00",
     "photos": [
       {
         "url": "https://randomuser.me/api/portraits/men/6.jpg",
+        "IsMain": true,
         "DateAdded": "2017-06-05T12:21:18 -01:00"
       }
     ],
@@ -21,11 +22,12 @@
     "Password": "password",
     "Firstname": "Robbie",
     "Lastname": "Buchanan",
-    "DOB": "2018-12-05T10:33:48 -01:00",
+    "DOB": "1990-12-05T10:33:48 -01:00",
     "DateJoined": "2014-07-16T08:44:45 -01:00",
     "photos": [
       {
         "url": "https://randomuser.me/api/portraits/men/6.jpg",
+        "IsMain": true,
         "DateAdded": "2015-04-29T10:52:57 -01:00"
       }
     ],
@@ -38,11 +40,12 @@
     "Password": "password",
     "Firstname": "Jewell",
     "Lastname": "Moss",
-    "DOB": "2014-01-28T06:20:11 -01:00",
+    "DOB": "1994-01-28T06:20:11 -01:00",
     "DateJoined": "2017-06-05T09:59:39 -01:00",
     "photos": [
       {
         "url": "https://randomuser.me/api/portraits/men/1.jpg",
+        "IsMain": true,
         "DateAdded": "2019-01-30T12:26:51 -01:00"
       }
     ],
@@ -55,11 +58,12 @@
     "Password": "password",
     "Firstname": "Alston",
     "Lastname": "Robinson",
-    "DOB": "2019-04-11T05:33:35 -01:00",
+    "DOB": "1986-04-11T05:33:35 -01:00",
     "DateJoined": "2015-12-24T04:07:32 -01:00",
     "photos": [
       {
         "url": "https://randomuser.me/api/portraits/men/7.jpg",
+        "IsMain": true,
         "DateAdded": "2018-07-05T08:10:58 -01:00"
       }
     ],
@@ -72,11 +76,12 @@
     "Password": "password",
     "Firstname": "Mattie",
     "Lastname": "Richard",
-    "DOB": "2014-04-24T03:10:00 -01:00",
+    "DOB": "1994-04-24T03:10:00 -01:00",
     "DateJoined": "2017-09-06T11:02:47 -01:00",
     "photos": [
       {
         "url": "https://randomuser.me/api/portraits/men/9.jpg",
+        "IsMain": true,
         "DateAdded": "2017-11-23T05:29:52 -01:00"
       }
     ],
@@ -89,11 +94,12 @@
     "Password": "password",
     "Firstname": "Bates",
     "Lastname": "Perez",
-    "DOB": "2015-08-01T04:49:48 -01:00",
+    "DOB": "1995-08-01T04:49:48 -01:00",
     "DateJoined": "2018-12-25T09:09:19 -01:00",
     "photos": [
       {
         "url": "https://randomuser.me/api/portraits/men/7.jpg",
+        "IsMain": true,
         "DateAdded": "2018-01-18T06:28:38 -01:00"
       }
     ],

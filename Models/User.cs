@@ -85,12 +85,12 @@ namespace HosteliteAPI.Models
         /// </summary>
         /// <returns></returns>
 
-        //public ICollection<Hostel> hostels { get; set; }
+        public ICollection<Hostel> hostels { get; set; }
         public User()
         {
             Photos = new Collection<Photo>();
 
-            //hostels = new Collection<Hostel>();
+            hostels = new Collection<Hostel>();
 
             DateJoined = DateTime.Now;
         }

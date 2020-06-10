@@ -47,23 +47,29 @@ namespace HosteliteAPI.Dtos
             }
         }
 
-        //public void SeedHostels()
-        //{
-        //  _context.Hostels.RemoveRange(_context.Hostels);
-        //  _context.SaveChanges();
-        //  var hostelData = System.IO.File.ReadAllText("Dtos/HostelSeedData.json");
-        //  var hostels = JsonConvert.DeserializeObject<List<Hostel>>(hostelData);
-        //  var users = _context.Users.ToList();
-        //  var countUsers = users.Count;
-        //  Random rnd = new Random();
-        //  foreach ( var hostel in hostels)
-        //  {
-        //    int userId = rnd.Next(1, countUsers);
-        //    hostel.user = _context.Users.FirstOrDefault(u => u.Id == userId);
-        //    hostel.userId = userId;
-        //    _context.Hostels.Add(hostel);
-        //    _context.SaveChanges();
-        //  }
-        //}
+        public void SeedHostels()
+        {
+          _context.Hostels.RemoveRange(_context.Hostels);
+          _context.SaveChanges();
+          var hostelData = System.IO.File.ReadAllText("Dtos/HostelSeedData.json");
+          var hostels = JsonConvert.DeserializeObject<List<Hostel>>(hostelData);
+          var users = _context.Users.ToList();
+          var countUsers = users.Count;
+          Random rnd = new Random();
+          foreach ( var hostel in hostels)
+          {
+            int userId = rnd.Next(1, countUsers);
+            hostel.user = _context.Users.FirstOrDefault(u => u.Id == userId);
+            hostel.userId = userId;
+            //var anonymousType = new
+            //{
+            //  url = "https://randomuser.me/api/portraits/men/9.jpg",
+            //  HostelID = userId
+            //};
+            //hostel.Photos = (HostelPhoto)anonymousType;
+            _context.Hostels.Add(hostel);
+            _context.SaveChanges();
+          }
+        }
     }
 }

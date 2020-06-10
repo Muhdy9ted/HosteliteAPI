@@ -16,12 +16,18 @@ namespace HosteliteAPI
                
 
             CreateMap<User, UserForDetailedDtos>().ForMember(dest => dest.PhotoUrl,
-                option => option.MapFrom(src => src.Photos.FirstOrDefault().Url))
+                option => option.MapFrom(src => src.Photos.FirstOrDefault(p => p.IsMain).Url))
                  .ForMember(dest => dest.Age, option => option.MapFrom(src => src.DOB.CalculateAge()));
+
+            CreateMap<Hostel, HostelsForDetailedDto>();
+
+            CreateMap<Hostel, HostelForListDto>();
 
             CreateMap<Photo, PhotosForDetailedDto>();
 
             CreateMap<UserForRegisterDto, User>();
-        }
+
+            CreateMap<HostelPhoto, HostelPhotosForDetailedDto>();
+    }
     }
 }

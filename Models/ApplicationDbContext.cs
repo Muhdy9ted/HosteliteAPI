@@ -29,7 +29,7 @@ namespace HosteliteAPI.Models
         /// registring our hostel model to the entity framework database context
         /// </summary>
         /// <returns></returns>
-        //public DbSet<Hostel> Hostels { get; set; }
+        public DbSet<Hostel> Hostels { get; set; }
 
         /// <summary>
         /// registring our user model to the entity framework database context
@@ -42,5 +42,11 @@ namespace HosteliteAPI.Models
         /// </summary>
         /// <returns></returns>
         public DbSet<Photo> Photos { get; set; }
-    }
+
+        /// <summary>
+        /// registring our user model to the entity framework database context
+        /// </summary>
+        /// <returns></returns>
+        public DbSet<HostelPhoto> HostelPhotos { get; set; }
+  }
 }

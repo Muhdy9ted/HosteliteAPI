@@ -11,41 +11,44 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HosteliteAPI.Controllers
 {
-    [Authorize]
-    [Route("api/[controller]")]
-    [ApiController]
-    public class UsersController : ControllerBase
+  [Authorize]
+  [Route("api/[controller]")]
+  [ApiController]
+  public class UsersController : ControllerBase
+  {
+    private readonly IUserRepository _repo;
+    private readonly IMapper _mapper;
+
+    public UsersController(IUserRepository repo, IMapper mapper)
     {
-        private readonly IUserRepository _repo;
-        private readonly IMapper _mapper;
-
-        public UsersController(IUserRepository repo, IMapper mapper)
-        {
-            _repo = repo;
-            _mapper = mapper;
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> GetUsers()
-        {
-            var users = await _repo.GetUsers();
-            var usersToReturn = _mapper.Map<IEnumerable<UserForListDto>>(users); 
-            return Ok(usersToReturn);
-        }
-        
-        [HttpGet("{id}", Name ="GetUser")]
-        public async Task<IActionResult> GetUser( int id)
-        { 
-            var user = await _repo.GetUser(id);
-            var userToReturn = _mapper.Map<UserForDetailedDtos>(user);
-            return Ok(userToReturn);
-        }
-
-        ////POST: api/Users/profile
-        //[HttpPost("profile")]
-        //public async Task<IActionResult> userProfile([FromBody]string token)
-        //{
-          
-        //}
+      _repo = repo;
+      _mapper = mapper;
     }
+
+    [HttpGet]
+    public async Task<IActionResult> GetUsers()
+    {
+      var users = await _repo.GetUsers();
+      var usersToReturn = _mapper.Map<IEnumerable<UserForListDto>>(users);
+      return Ok(usersToReturn);
+    }
+
+    [HttpGet("{id}", Name = "user")]
+    public async Task<IActionResult> GetUser(int id)
+    {
+      var user = await _repo.GetUser(id);
+      var userToReturn = _mapper.Map<UserForDetailedDtos>(user);
+      return Ok(userToReturn);
+    }
+
+    ////POST: api/Users/profile
+    //[HttpPost("profile")]
+    //public async Task<IActionResult> userProfile([FromBody]string token)
+    //{
+
+    //}
+
+    //[HttpPut ("{{id}}")]
+    //public async Task<IActionResult> UpdateUser( int id, )
+  }
 }

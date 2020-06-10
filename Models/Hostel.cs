@@ -80,7 +80,7 @@ namespace HosteliteAPI.Models
         /// <returns></returns>
         public DateTime CreatedHostel { get; set; }
 
-        public ICollection<Photo> Photos { get; set; }
+        public ICollection<HostelPhoto> Photos { get; set; }
 
         public User user { get; set; }
 
@@ -88,7 +88,7 @@ namespace HosteliteAPI.Models
 
         public Hostel()
         {
-          Photos = new Collection<Photo>();
+          Photos = new Collection<HostelPhoto>();
 
           CreatedHostel = DateTime.Now;
         }

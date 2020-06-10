@@ -1,4 +1,4 @@
-﻿using HosteliteAPI.Models;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HosteliteAPI.Dtos
 {
-  public class HostelsForDetailedDto
+  public class HostelForListDto
   {
     public int ID { get; set; }
 
@@ -38,13 +38,13 @@ namespace HosteliteAPI.Dtos
     /// The hostel number field that holds the number of rooms in the hostel
     /// </summary>
     /// <returns></returns>
-    public int HostelNumberOfRooms { get; set; }
+    //public int HostelNumberOfRooms { get; set; }
 
     /// <summary>
     /// The hostel description field that holds a detail description of the essentail facilities in the hostel
     /// </summary>
     /// <returns></returns>
-    public string HostelDescription { get; set; }
+    //public string HostelDescription { get; set; }
 
     /// <summary>
     /// The vacant room field that signifies if rooms are vacant in the hostel
@@ -56,13 +56,13 @@ namespace HosteliteAPI.Dtos
     /// The hostel slug field that holds a concantanation of various hostel model fields for making a friendly url
     /// </summary>
     /// <returns></returns>
-    public string HostelSlug { get; set; }
+    //public string HostelSlug { get; set; }
 
     /// <summary>
     /// The rent field that holds the rent price for the rooms in the hostel
     /// </summary>
     /// <returns></returns>
-    public double RentPerRoom { get; set; }
+    //public double RentPerRoom { get; set; }
 
     /// <summary>
     /// The hostel created field that holds the time and date an hostel was created and added to the db
@@ -70,20 +70,11 @@ namespace HosteliteAPI.Dtos
     /// <returns></returns>
     public DateTime CreatedHostel { get; set; }
 
-    public User user { get; set; }
-
-    public int userId { get; set; }
 
     /// <summary>
     /// The password hash field that holds the hashed value of the user's password
     /// </summary>
     /// <returns></returns>
     public string PhotoUrl { get; set; }
-
-    /// <summary>
-    /// The password hash field that holds the hashed value of the user's password
-    /// </summary>
-    /// <returns></returns>
-    public ICollection<HostelPhotosForDetailedDto> Photos { get; set; }
   }
 }

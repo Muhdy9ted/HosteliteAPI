@@ -89,7 +89,7 @@ namespace HosteliteAPI
                    options.TokenValidationParameters = new TokenValidationParameters
                    {
                        ValidateIssuerSigningKey = true,
-                       IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration.GetSection("AppSettings:token").Value)),
+                       IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration.GetSection("AppSettings:Token").Value)),
                        ValidateIssuer = false,
                        ValidateAudience = false
                    };
@@ -104,9 +104,10 @@ namespace HosteliteAPI
             });
                 
             services.AddCors();
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
-            //services.AddScoped<IHostelRepository, HostelRepository>();
+            services.AddScoped<IHostelRepository, HostelRepository>();
         }
 
 
@@ -158,7 +159,7 @@ namespace HosteliteAPI
             app.UseSwaggerUI(options =>
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "Hostelite API v1")
             );
-            seed.SeedUsers();
+            //seed.SeedUsers();
             //seed.SeedHostels();
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials());
             app.UseAuthentication();

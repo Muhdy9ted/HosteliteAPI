@@ -11,10 +11,11 @@
     "RentPerRoom": 720.1378,
     "CreatedHostel": "2014-08-01T02:19:33 -01:00",
     "user": {},
-    "userId": "0",
+    "userId": "1",
     "photos": [
       {
-        "url": "https://randomuser.me/api/portraits/men/9.jpg",
+        "url": "https://i.postimg.cc/HLrWCvsp/house6.jpg",
+        "IsMain": true,
         "DateAdded": "2014-08-01T02:19:33 -01:00"
       }
     ]
@@ -34,7 +35,8 @@
     "userId": "2",
     "photos": [
       {
-        "url": "https://randomuser.me/api/portraits/men/9.jpg",
+        "url": "https://i.postimg.cc/3JZxjDcH/house5.jpg",
+        "IsMain": true,
         "DateAdded": "2018-11-16T07:24:57 -01:00"
       }
     ]
@@ -54,7 +56,8 @@
     "userId": "3",
     "photos": [
       {
-        "url": "https://randomuser.me/api/portraits/men/7.jpg",
+        "url": "https://i.postimg.cc/sxYDNBf7/house4.jpg",
+        "IsMain": true,
         "DateAdded": "2016-01-22T11:16:20 -01:00"
       }
     ]
@@ -74,7 +77,8 @@
     "userId": "4",
     "photos": [
       {
-        "url": "https://randomuser.me/api/portraits/men/10.jpg",
+        "url": "https://i.postimg.cc/cLX6W8Rc/house3.jpg",
+        "IsMain": true,
         "DateAdded": "2018-08-26T06:29:26 -01:00"
       }
     ]
@@ -94,7 +98,8 @@
     "userId": "5",
     "photos": [
       {
-        "url": "https://randomuser.me/api/portraits/men/1.jpg",
+        "url": "https://i.postimg.cc/L5LnFCDq/house2.jpg",
+        "IsMain": true,
         "DateAdded": "2017-11-01T12:20:17 -01:00"
       }
     ]
@@ -111,10 +116,11 @@
     "RentPerRoom": 301.8559,
     "CreatedHostel": "2014-08-01T02:19:33 -01:00",
     "user": {},
-    "userId":  "8",
+    "userId":  "1",
     "photos": [
       {
-        "url": "https://randomuser.me/api/portraits/men/10.jpg",
+        "url": "https://i.postimg.cc/BQ21r67h/house1.jpg",
+        "IsMain": true,
         "DateAdded": "2017-08-14T07:36:41 -01:00"
       }
     ]
@@ -131,10 +137,10 @@
     "RentPerRoom": 621.6692,
     "CreatedHostel": "2014-08-01T02:19:33 -01:00",
     "user": {},
-    "userId": "9",
+    "userId": "2",
     "photos": [
       {
-        "url": "https://randomuser.me/api/portraits/men/5.jpg",
+        "url": "https://i.postimg.cc/BQ21r67h/house1.jpg",
         "DateAdded": "2016-11-10T06:52:49 -01:00"
       }
     ]

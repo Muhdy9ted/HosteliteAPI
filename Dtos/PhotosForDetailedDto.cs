@@ -24,5 +24,11 @@ namespace HosteliteAPI.Dtos
         /// </summary>
         /// <returns></returns>
         public DateTime DateAdded { get; set; }
-    }
+
+        /// <summary>
+        /// The password hash field that holds the hashed value of the user's password
+        /// </summary>
+        /// <returns></returns>
+        public bool IsMain { get; set; }
+  }
 }

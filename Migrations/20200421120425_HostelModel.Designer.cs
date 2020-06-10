@@ -4,14 +4,16 @@ using HosteliteAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HosteliteAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200421120425_HostelModel")]
+    partial class HostelModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -54,29 +56,6 @@ namespace HosteliteAPI.Migrations
                     b.ToTable("Hostels");
                 });
 
-            modelBuilder.Entity("HosteliteAPI.Models.HostelPhoto", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("DateAdded");
-
-                    b.Property<int>("HostelID");
-
-                    b.Property<bool>("IsMain");
-
-                    b.Property<string>("PublicID");
-
-                    b.Property<string>("Url");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("HostelID");
-
-                    b.ToTable("HostelPhotos");
-                });
-
             modelBuilder.Entity("HosteliteAPI.Models.Photo", b =>
                 {
                     b.Property<int>("Id")
@@ -85,15 +64,17 @@ namespace HosteliteAPI.Migrations
 
                     b.Property<DateTime>("DateAdded");
 
-                    b.Property<bool>("IsMain");
+                    b.Property<int?>("HostelID");
 
-                    b.Property<string>("PublicID");
+                    b.Property<bool>("IsMain");
 
                     b.Property<string>("Url");
 
                     b.Property<int>("UserId");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("HostelID");
 
                     b.HasIndex("UserId");
 
@@ -137,16 +118,12 @@ namespace HosteliteAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("HosteliteAPI.Models.HostelPhoto", b =>
-                {
-                    b.HasOne("HosteliteAPI.Models.Hostel", "Hostel")
-                        .WithMany("Photos")
-                        .HasForeignKey("HostelID")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
             modelBuilder.Entity("HosteliteAPI.Models.Photo", b =>
                 {
+                    b.HasOne("HosteliteAPI.Models.Hostel")
+                        .WithMany("Photos")
+                        .HasForeignKey("HostelID");
+
                     b.HasOne("HosteliteAPI.Models.User", "User")
                         .WithMany("Photos")
                         .HasForeignKey("UserId")
